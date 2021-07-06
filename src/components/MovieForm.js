@@ -9,7 +9,7 @@ class MovieForm extends React.Component {
   }
 
   handleSubmit() {
-    const { onSubmit } = this.props;
+    // const { onSubmit } = this.props;
     onSubmit(this.state);
   }
 
@@ -163,5 +163,18 @@ class MovieForm extends React.Component {
     );
   }
 }
+
+MovieForm.propTypes = {
+  movie: PropTypes.arrayOf(PropTypes.shape({
+    id: PropTypes.number.isRequired,
+    title: PropTypes.string.isRequired,
+    subtitle: PropTypes.string.isRequired,
+    storyline: PropTypes.string.isRequired,
+    rating: PropTypes.number.isRequired,
+    imagePath: PropTypes.string.isRequired,
+    bookmarked: PropTypes.bool.isRequired,
+    genre: PropTypes.string.isRequired,
+  }).isRequired).isRequired,
+};
 
 export default MovieForm;
