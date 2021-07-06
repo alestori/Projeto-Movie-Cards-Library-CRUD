@@ -11,7 +11,6 @@ function App() {
   return (
     <Router>
       <Switch>
-        <div className="movie-card-header">Movie Card Library CRUD</div>
         <Route path="/movies/:id/edit" component={ EditMovie } />
         <Route path="/movies/new" component={ NewMovie } />
         <Route path="/movies/:id" component={ MovieDetails } />

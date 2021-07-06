@@ -14,13 +14,18 @@ class MovieList extends Component {
   }
 
   componentDidMount() {
-    movieAPI.getMovies().then((result) => this.setState({ movies: result }));
+    movieAPI.getMovies().then((result) => {
+      this.setState({
+        movies: result,
+        loading: false,
+      });
+    });
   }
 
   render() {
-    const { movies } = this.state;
+    const { movies, loading } = this.state;
 
-    if (!movies.length) {
+    if (loading) {
       return <Loading />;
     }
 
