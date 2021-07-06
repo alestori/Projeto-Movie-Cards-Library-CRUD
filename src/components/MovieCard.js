@@ -12,11 +12,12 @@ class MovieCard extends React.Component {
           <img alt="Movie Cover" className="movie-card-image" src={ imagePath } />
           <h4 className="movie-card-title">{title}</h4>
           <p className="movie-card-subtitle">
-            {`Subtitle: ${subtitle}`}
+            {'Subtitle: '}
+            <span>{subtitle}</span>
           </p>
           <p className="movie-card-storyline">
-            {`Storyline: ${storyline}`}
-            <span />
+            {'Storyline: '}
+            <span>{storyline}</span>
           </p>
         </div>
         <Link to={ `movies/${id}` }>VER DETALHES</Link>

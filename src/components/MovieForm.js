@@ -23,7 +23,6 @@ class MovieForm extends React.Component {
     return (
       <div>
         <label htmlFor="movie_title">
-          Título
           <input
             placeholder="Insira o título"
             id="movie_title"
@@ -32,6 +31,7 @@ class MovieForm extends React.Component {
             value={ title }
             onChange={ (event) => this.updateMovie('title', event.target.value) }
           />
+          Título
         </label>
       </div>
     );
@@ -43,7 +43,6 @@ class MovieForm extends React.Component {
     return (
       <div>
         <label htmlFor="movie_subtitle">
-          Subtítulo
           <input
             placeholder="Insira o subtítulo"
             id="movie_subtitle"
@@ -51,6 +50,7 @@ class MovieForm extends React.Component {
             value={ subtitle }
             onChange={ (event) => this.updateMovie('subtitle', event.target.value) }
           />
+          Subtítulo
         </label>
       </div>
     );
@@ -62,7 +62,6 @@ class MovieForm extends React.Component {
     return (
       <div className="row">
         <label htmlFor="movie_image">
-          Imagem
           <input
             placeholder="Insira o caminho da imagem"
             id="movie_image"
@@ -70,6 +69,7 @@ class MovieForm extends React.Component {
             value={ imagePath }
             onChange={ (event) => this.updateMovie('imagePath', event.target.value) }
           />
+          Imagem
         </label>
       </div>
     );
@@ -81,12 +81,12 @@ class MovieForm extends React.Component {
     return (
       <div>
         <label htmlFor="movie_storyline">
-          Sinopse
           <textarea
             id="movie_storyline"
             value={ storyline }
             onChange={ (event) => this.updateMovie('storyline', event.target.value) }
           />
+          Sinopse
         </label>
       </div>
     );
@@ -163,5 +163,18 @@ class MovieForm extends React.Component {
     );
   }
 }
+
+MovieForm.propTypes = {
+  movie: PropTypes.shape({
+    id: PropTypes.number.isRequired,
+    title: PropTypes.string.isRequired,
+    subtitle: PropTypes.string.isRequired,
+    storyline: PropTypes.string.isRequired,
+    rating: PropTypes.number.isRequired,
+    imagePath: PropTypes.string.isRequired,
+    genre: PropTypes.string.isRequired,
+  }).isRequired,
+  onSubmit: PropTypes.func.isRequired,
+};
 
 export default MovieForm;
