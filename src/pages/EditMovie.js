@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import { Redirect } from 'react-router-dom';
-import { MovieForm } from '../components';
-import { Loading } from '../components';
+import { Loading, MovieForm } from '../components';
 import * as movieAPI from '../services/movieAPI';
 
 class EditMovie extends Component {
@@ -21,7 +21,9 @@ class EditMovie extends Component {
     this.fetchMovieUpdate();
   }
 
-  handleSubmit(updatedMovie) {
+  async handleSubmit(updatedMovie) {
+    await movieAPI.updateMovie(updatedMovie);
+    this.setState({ shouldRedirect: true });
   }
 
   async fetchMovieUpdate() {
@@ -45,5 +47,9 @@ class EditMovie extends Component {
     );
   }
 }
+
+EditMovie.propTypes = {
+  id: PropTypes.number,
+}.isRequired;
 
 export default EditMovie;
