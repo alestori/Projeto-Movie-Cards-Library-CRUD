@@ -36,7 +36,7 @@ class MovieList extends Component {
     // Render Loading here if the request is still happening
     // if (isLoading) return <Loading />
     return (
-      <div data-testid="movie-list">
+      <div data-testid="movie-list" className="movie-list">
         {
           (isLoading) ? <Loading />
             : movies
