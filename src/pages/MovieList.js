@@ -25,7 +25,6 @@ class MovieList extends Component {
       movies: [...prevState.movies, ...moviesObj],
       loading: false,
     }));
-    console.log(moviesObj);
   }
 
   render() {
