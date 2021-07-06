@@ -1,18 +1,41 @@
 import React, { Component } from 'react';
-
 import * as movieAPI from '../services/movieAPI';
-import { Loading } from '../components';
+import Loading from '../components/Loading';
 
-class MovieDetails extends Component {
-  render() {
-    // Change the condition to check the state
-    // if (true) return <Loading />;
+export default class MovieDetails extends Component {
 
-    const { title, storyline, imagePath, genre, rating, subtitle } = {};
+  constructor(props) {
+    super();
+
+    this.state = {
+      loading: true,
+      movie: {},
+      id: props.id,
+    };
+    this.loadMovieDetails = this.loadMovieDetails.bind(this);
+  }
+
+  componentDidMount() {
+    const id = this.props.match.params.id;
+    movieAPI.getMovie(id)
+      .then((res) => { console.log(res);
+        this.setState({
+          loading: false,
+          movie: res,
+        });
+      })
+      .catch(() => {this.setState({
+        loading: 'Erro ao carregar',
+      })})
+  }
+
+  loadMovieDetails() {
+    const { title, storyline, imagePath, genre, rating, subtitle } = this.state.movie;
 
     return (
       <div data-testid="movie-details">
         <img alt="Movie Cover" src={ `../${imagePath}` } />
+        <p>{ `Title: ${title}` }</p>
         <p>{ `Subtitle: ${subtitle}` }</p>
         <p>{ `Storyline: ${storyline}` }</p>
         <p>{ `Genre: ${genre}` }</p>
@@ -20,6 +43,10 @@ class MovieDetails extends Component {
       </div>
     );
   }
-}
 
-export default MovieDetails;
+  render() {
+    return (
+      this.state.loading ? <Loading /> : this.loadMovieDetails()
+    );
+  }
+}
