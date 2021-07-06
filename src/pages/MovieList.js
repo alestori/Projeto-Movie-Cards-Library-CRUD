@@ -15,6 +15,10 @@ class MovieList extends Component {
     this.fetchMovies = this.fetchMovies.bind(this);
   }
 
+  componentDidMount() {
+    this.fetchMovies();
+  }
+
   async fetchMovies() {
     const movies = await movieAPI.getMovies();
     this.setState({
