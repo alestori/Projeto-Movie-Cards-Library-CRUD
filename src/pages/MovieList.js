@@ -3,7 +3,7 @@ import MovieCard from '../components/MovieCard';
 
 import * as movieAPI from '../services/movieAPI';
 
-class MovieList extends Component {
+export default class MovieList extends Component {
   constructor() {
     super();
 
@@ -25,4 +25,3 @@ class MovieList extends Component {
   }
 }
 
-export default MovieList;
