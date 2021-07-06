@@ -8,6 +8,7 @@ import { Loading } from '../components';
 class MovieDetails extends Component {
   constructor(props) {
     super(props);
+    this.mounted = false;
     this.state = {
       loading: true,
     };
@@ -16,18 +17,25 @@ class MovieDetails extends Component {
   }
 
   componentDidMount() {
+    this.mounted = true;
     this.handleFetchMovie();
   }
 
+  componentWillUnmount() {
+    this.mounted = false;
+  }
+
   async handleFetchMovie() {
-    const { match: { params: { id } } } = this.props;
     this.setState({ loading: true },
       async () => {
+        const { match: { params: { id } } } = this.props;
         const movie = await movieAPI.getMovie(id);
         const { title, storyline, imagePath, genre, rating, subtitle } = movie;
-        this.setState({
-          title, storyline, imagePath, genre, rating, subtitle, id, loading: false,
-        });
+        if (this.mounted) {
+          this.setState({
+            title, storyline, imagePath, genre, rating, subtitle, id, loading: false,
+          });
+        }
       });
   }
 
