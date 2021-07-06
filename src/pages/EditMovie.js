@@ -10,8 +10,9 @@ class EditMovie extends Component {
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
-  /* handleSubmit(updatedMovie) {
-  } */
+  // updatedMovie -> passado como parêmetro na handleSubmit
+  handleSubmit() {
+  }
 
   render() {
     const { status, shouldRedirect, movie } = this.state;
