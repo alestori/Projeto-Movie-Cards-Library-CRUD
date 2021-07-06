@@ -9,8 +9,10 @@ class NewMovie extends Component {
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
-  // handleSubmit(newMovie) {
-  // }
+  // newMovie
+
+  handleSubmit() {
+  }
 
   render() {
     return (
@@ -20,4 +22,5 @@ class NewMovie extends Component {
     );
   }
 }
+
 export default NewMovie;
