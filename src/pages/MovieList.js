@@ -3,7 +3,6 @@ import Loading from '../components/Loading';
 import MovieCard from '../components/MovieCard';
 
 import * as movieAPI from '../services/movieAPI';
-import movieData from '../services/movieData';
 
 class MovieList extends Component {
   constructor() {
@@ -15,25 +14,24 @@ class MovieList extends Component {
     };
   }
 
-  async componentDidMount() {
-    const response = await movieAPI.getMovies();
-    this.updateMovies(response);
+  componentDidMount() {
+    this.updateMovies();
   }
 
-  updateMovies = (response) => {
-    const { movies } = this.state;
+  updateMovies = async () => {
+    const response = await movieAPI.getMovies();
     this.setState({
-      movies: [...movies, response],
+      movies: response,
       loading: false,
     });
   }
 
   render() {
-    const { loading } = this.state;
+    const { movies, loading } = this.state;
     return (
       <div data-testid="movie-list">
         <h1>MovieList</h1>
-        {loading ? <Loading /> : movieData
+        {loading ? <Loading /> : movies
           .map((movie) => <MovieCard key={ movie.title } movie={ movie } />)}
       </div>
     );
