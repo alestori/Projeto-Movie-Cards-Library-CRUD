@@ -25,7 +25,7 @@ class MovieList extends Component {
       movies: result,
       loading: false,
     });
-  };
+  }
 
   render() {
     const { movies, loading } = this.state;
