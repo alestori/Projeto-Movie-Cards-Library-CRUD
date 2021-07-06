@@ -12,14 +12,19 @@ body {
 
 .page-header {
   align-items: center;
+  backdrop-filter: blur(10px);
+  background-color: rgba(0, 0, 0, 0.521);
   display: flex;
   height: 100px;
   justify-content: center;
+  position: fixed;
+  width: 100%;
+  z-index: 1;
 }
 
 .page-title {
   color: white;
-  font-family: TheGodfather, serif;
+  font-family: TheGodfather , serif;
   font-size: 70px;
   font-weight: 500;
   text-align: center;
@@ -29,6 +34,9 @@ main {
   align-items: center;
   display: flex;
   flex-direction: column;
+  position: absolute;
+  top: 120px;
+  width: 100%;
 }
 
 .movie-card {
@@ -43,6 +51,66 @@ main {
   padding: 0;
   transition: 0.3s;
   width: 24%;
+}
+
+.movie-details {
+  background-color: white;
+  border: 1px solid rgba(0, 0, 0, 0.125);
+  border-radius: 3px;
+  display: flex;
+  flex-direction: column;
+  margin: 5px;
+  overflow: hidden;
+  overflow-wrap: break-word;
+  padding: 0;
+  transition: 0.3s;
+  width: 40%;
+}
+
+.movie-card-storyline {
+  padding: 20px;
+  text-align: justify;
+}
+
+.rating {
+  background-color: black;
+  border-radius: 5px;
+  color: red;
+  font-size: 16px;
+  font-weight: 700;
+  padding: 3px 9px;
+}
+
+.movie-card-rating {
+  align-items: center;
+  background-color: rgba(0, 0, 0, 0.03);
+  border-top: 1px solid rgba(0, 0, 0, 0.125);
+  display: flex;
+  justify-content: space-between;
+  padding: 12px 20px;
+}
+
+.titles {
+  background-color: black;
+  border-radius: 0 0 2px 2px;
+  box-shadow: 0 2px 5px black;
+  padding: 5px;
+}
+
+.movie-card-title {
+  color: red;
+  font-size: 24px;
+  font-weight: 500;
+  margin: 0 0 12px;
+  text-align: right;
+}
+
+.movie-card-subtitle {
+  color: #6c757d;
+  font-size: 16px;
+  font-weight: 500;
+  margin: 0 0 8px;
+  text-align: right;
 }
 
 .movie-list {
