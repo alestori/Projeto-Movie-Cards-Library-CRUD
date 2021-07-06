@@ -23,10 +23,11 @@ class EditMovie extends Component {
   }
 
   async handleSubmit(updatedMovie) {
-    await movieAPI.updateMovie(updatedMovie);
     this.setState({
       shouldRedirect: true,
+      status: 'loading',
     });
+    await movieAPI.updateMovie(updatedMovie);
   }
 
   async getMovieToEdit(movieId) {
