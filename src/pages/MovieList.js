@@ -14,12 +14,11 @@ class MovieList extends Component {
   }
 
   componentDidMount() {
-    const movieList = this.fetchMovieList();
+    this.fetchMovieList();
   }
 
   async fetchMovieList() {
     const list = await movieAPI.getMovies();
-    console.log(list);
     this.setState((prevState) => ({
       movies: [...prevState.movies, ...list],
     }));
@@ -31,7 +30,7 @@ class MovieList extends Component {
     return (
       <div data-testid="movie-list">
         { movies.length >= 1
-          ? movies.map((movie) => <MovieCard key={ movie.id } movie={ movie } />)
+          ? movies.map((movie) => <MovieCard key={ movie.title } movie={ movie } />)
           : <div>Carregando...</div> }
       </div>
     );
