@@ -1,5 +1,4 @@
 import React from 'react';
-import React from 'react';
 import { BrowserRouter, Route, Switch, Link } from 'react-router-dom';
 import NotFound from './pages/NotFound';
 import MovieList from './pages/MovieList';
@@ -7,11 +6,10 @@ import NewMovie from './pages/NewMovie';
 import MovieDetails from './pages/MovieDetails';
 import EditMovie from './pages/EditMovie';
 
-
-class App extends React.Component{
+class App extends jReact.Component {
   render() {
     return (
-            <BrowserRouter>
+      <BrowserRouter>
         <div>
           Movie Card Library CRUD
         </div>
@@ -34,7 +32,7 @@ class App extends React.Component{
         </Switch>
         <Link to="/movies/new">ADICIONAR CARTÃO</Link>
       </BrowserRouter>
-      );
+    );
   }
 }
 
