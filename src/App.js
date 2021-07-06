@@ -1,4 +1,5 @@
 import React from 'react';
+import Header from './components/Header';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import MovieList from './pages/MovieList';
 import MovieDetails from './pages/MovieDetails';
@@ -11,6 +12,7 @@ class App extends React.Component {
   render() {
     return (
       <div>
+        <Header />
         <BrowserRouter>
           <Switch>
             <Route exact path="/" component={ MovieList } />
