@@ -6,7 +6,7 @@ import NewMovie from './pages/NewMovie';
 import MovieDetails from './pages/MovieDetails';
 import EditMovie from './pages/EditMovie';
 
-class App extends jReact.Component {
+class App extends React.Component {
   render() {
     return (
       <BrowserRouter>
