@@ -17,7 +17,7 @@ class MovieDetails extends Component {
 
   componentDidMount() {
     const { match: { params: { id } } } = this.props;
-    this.getMovieDetails(id[id.length - 1]);
+    this.getMovieDetails(id);
   }
 
   async getMovieDetails(movieId) {
