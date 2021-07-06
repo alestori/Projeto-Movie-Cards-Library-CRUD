@@ -11,9 +11,9 @@ class Home extends React.Component {
     return (
       <Switch>
         <Route exact path="/" render={ () => <MovieList /> } />
-        <Route exact path="/movies/:id" render={ () => <MovieDetails /> } />
-        <Route exact path="/movies/new" render={ () => <NewMovie /> } />
-        <Route exact path="/movies/:id/edit" render={ () => <EditMovie /> } />
+        <Route path="/movies/new" render={ () => <NewMovie /> } />
+        <Route path="/movies/:id/edit" render={ () => <EditMovie /> } />
+        <Route path="/movies/:id" render={ () => <MovieDetails /> } />
         <Route path="" render={ () => <NotFound /> } />
       </Switch>
     );
