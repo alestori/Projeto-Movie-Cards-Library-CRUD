@@ -1,0 +1,25 @@
+.library-edit-form div form {
+  border: 2px solid black;
+  display: flex;
+  flex-direction: column;
+}
+
+.library-edit-form div form div {
+  margin: 10px auto;
+  width: 80%;
+}
+
+.library-edit-form div form label {
+  display: flex;
+  flex-direction: column;
+ 
+}
+
+.library-edit-form div form button {
+  background-color:lightseagreen ;
+  border: 1px solid black;
+  border-radius: 10px;
+  color: white;
+  height: 35px;
+  width: 30%;
+}
