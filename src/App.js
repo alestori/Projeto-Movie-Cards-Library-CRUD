@@ -11,7 +11,7 @@ class App extends Component {
   render() {
     return (
       <Router>
-        <div>Movie Card Library CRUD</div>
+        <h1>Movie Card Library CRUD</h1>
         <Switch>
           <Route path="/movies/new" component={ NewMovie } />
           <Route path="/movies/:id/edit" component={ EditMovie } />
