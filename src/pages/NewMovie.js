@@ -14,11 +14,13 @@ class NewMovie extends Component {
   }
 
   async handleSubmit(newMovie) {
-    await movieAPI.createMovie(newMovie);
+    const response = await movieAPI.createMovie(newMovie);
 
-    this.setState({
-      shouldRedirect: true,
-    });
+    if (response === 'OK') {
+      this.setState({
+        shouldRedirect: true,
+      });
+    }
   }
 
   render() {
