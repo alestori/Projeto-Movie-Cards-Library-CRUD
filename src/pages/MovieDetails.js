@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import * as movieAPI from '../services/movieAPI';
 import { Loading } from '../components';
@@ -25,7 +26,6 @@ class MovieDetails extends Component {
   }
 
   async fetchMovie() {
-    // eslint-disable-next-line react/prop-types
     const { match: { params: { id } } } = this.props;
     const movie = await movieAPI.getMovie(id);
     this.setState({
@@ -69,5 +69,13 @@ class MovieDetails extends Component {
     );
   }
 }
+
+MovieDetails.propTypes = {
+  match: PropTypes.shape({
+    params: PropTypes.shape({
+      id: PropTypes.string,
+    }),
+  }).isRequired,
+};
 
 export default MovieDetails;
