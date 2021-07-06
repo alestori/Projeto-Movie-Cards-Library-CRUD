@@ -20,7 +20,7 @@ class MovieList extends Component {
   render() {
     const { movies } = this.state;
 
-    if (movies.length === null) {
+    if (movies.length === 0) {
       return (<Loading />);
     }
 
