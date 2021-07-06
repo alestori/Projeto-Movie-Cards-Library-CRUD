@@ -27,13 +27,6 @@ class MovieList extends Component {
       loading: false,
     });
   }
-  // async componentDidMount() {
-  //   const reponse = await movieAPI.getMovies();
-  //   this.setState({
-  //     movies: reponse,
-  //     loading: false,
-  //   });
-  // }
 
   render() {
     const { movies, loading } = this.state;
