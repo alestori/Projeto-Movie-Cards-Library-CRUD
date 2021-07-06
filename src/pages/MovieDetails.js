@@ -33,7 +33,6 @@ class MovieDetails extends Component {
   async deletingMovie(id) {
     await movieAPI.deleteMovie(id);
   }
-     
 
   render() {
     const { movie, loading } = this.state;

@@ -23,3 +23,7 @@ form button {
   height: 35px;
   width: 30%;
 }
+
+form button:hover {
+  cursor: pointer;
+}
