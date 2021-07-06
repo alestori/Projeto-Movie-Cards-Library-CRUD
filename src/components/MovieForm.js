@@ -170,7 +170,7 @@ MovieForm.propTypes = {
 };
 
 MovieForm.defaultProps = {
-  movie: undefined,
+  movie: [],
 };
 
 export default MovieForm;
