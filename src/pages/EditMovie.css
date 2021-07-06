@@ -12,11 +12,10 @@
 .library-edit-form div form label {
   display: flex;
   flex-direction: column;
- 
 }
 
 .library-edit-form div form button {
-  background-color:lightseagreen ;
+  background-color: lightseagreen;
   border: 1px solid black;
   border-radius: 10px;
   color: white;
