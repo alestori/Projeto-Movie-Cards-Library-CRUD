@@ -2,3 +2,26 @@ body {
   background-color: whitesmoke;
   box-sizing: border-box;
 }
+
+.movie-card {
+  background-color: white;
+  border: 1px solid rgba(0, 0, 0, 0.125);
+  border-radius: 3px;
+  display: flex;
+  flex-direction: column;
+  height: 500px;
+  margin: 5px;
+  overflow: hidden;
+  padding: 0;
+  transition: 0.3s;
+  width: 24%;
+}
+
+.movie-list {
+  backdrop-filter: blur(2px);
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: flex-start;
+  padding: 48px 30px;
+}
