@@ -21,8 +21,8 @@ body {
 
 .movie-list {
   display: flex;
-  justify-content: space-evenly;
   flex-flow: row wrap;
+  justify-content: space-evenly;
   padding: 48px 30px;
 }
 
@@ -63,7 +63,6 @@ body {
 .movie-card-storyline {
   font-size: 14px;
   text-align: justify;
-  /* overflow: scroll; */
 }
 
 .rating {
