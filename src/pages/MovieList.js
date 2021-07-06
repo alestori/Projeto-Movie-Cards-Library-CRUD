@@ -23,8 +23,7 @@ class MovieList extends Component {
     const importedMovies = await movieAPI.getMovies();
     this.setState({
       movies: importedMovies,
-      loading: false,
-    });
+      loading: false });
   }
 
   render() {
