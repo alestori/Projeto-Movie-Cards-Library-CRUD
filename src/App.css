@@ -3,3 +3,60 @@ body {
   box-sizing: border-box;
 }
 
+.movie-card {
+  background-color: white;
+  border: 1px solid rgba(0, 0, 0, 0.125);
+  border-radius: 3px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  margin: 10px 15px;
+  min-height: 450px;
+  overflow: hidden;
+  padding: 5px;
+  text-align: center;
+  width: 300px;
+}
+
+.title {
+  background-color: #0f0e17;
+  color: #fffffe;
+  font-weight: 500;
+  padding: 1px 0 50px;
+  text-align: center;
+}
+
+.link-button {
+  border: 3px solid white;
+  color: #fffffe;
+  padding: 10px;
+  text-decoration: none;
+}
+
+.link-button:hover {
+  background-color: white;
+  color: black;
+}
+
+.initial-page {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.card-button {
+  align-self: center;
+  border: 3px solid black;
+  color: black;
+  font-weight: 500;
+  margin-bottom: 7px;
+  padding: 10px;
+  text-align: center;
+  text-decoration: none;
+  width: 50%;
+}
+
+.card-button:hover {
+  background-color: black;
+  color: white;
+}
