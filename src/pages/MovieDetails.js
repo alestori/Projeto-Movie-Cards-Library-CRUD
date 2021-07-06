@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 import * as movieAPI from '../services/movieAPI';
 import Loading from '../components/Loading';
 
@@ -16,9 +17,9 @@ export default class MovieDetails extends Component {
   }
 
   componentDidMount() {
-    const id = this.props.match.params.id;
+    const { id } = this.props.match.params;
     movieAPI.getMovie(id)
-      .then((res) => { console.log(res);
+      .then((res) => {
         this.setState({
           loading: false,
           movie: res,
@@ -31,7 +32,7 @@ export default class MovieDetails extends Component {
 
   loadMovieDetails() {
     const { title, storyline, imagePath, genre, rating, subtitle } = this.state.movie;
-
+    const { id } = this.props.match.params;
     return (
       <div data-testid="movie-details">
         <img alt="Movie Cover" src={ `../${imagePath}` } />
@@ -40,6 +41,8 @@ export default class MovieDetails extends Component {
         <p>{ `Storyline: ${storyline}` }</p>
         <p>{ `Genre: ${genre}` }</p>
         <p>{ `Rating: ${rating}` }</p>
+        <button><Link to={'/'}>VOLTAR</Link></button>
+        <button><Link to={`/movies/${id}/edit`}>EDITAR</Link></button>
       </div>
     );
   }
