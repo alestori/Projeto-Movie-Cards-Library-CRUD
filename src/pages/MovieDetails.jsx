@@ -61,12 +61,31 @@ class MovieDetails extends Component {
             <h4 className="movie-card-subtitle">{ `${subtitle}` }</h4>
           </div>
           <p className="movie-card-storyline">{ `${storyline}` }</p>
-          <p>{ `${genre}` }</p>
-          <div className="movie-card-rating">
-            <p className="rating">{ `${rating}` }</p>
-            <Link to={ `/movies/${id}/edit` }>EDITAR</Link>
-            <Link to="/">VOLTAR</Link>
-            <Link to="/" onClick={ this.delete }>DELETAR</Link>
+          <p className="movie-card-genre">{ `${genre}` }</p>
+          <div className="movie-card-rating-and-buttons">
+            <p className="rating">{ `Avaliação: ${rating}` }</p>
+            <Link
+              to={ `/movies/${id}/edit` }
+              style={ { textDecoration: 'none' } }
+              className="edit button"
+            >
+              EDITAR
+            </Link>
+            <Link
+              to="/"
+              style={ { textDecoration: 'none' } }
+              className="return button"
+            >
+              VOLTAR
+            </Link>
+            <Link
+              to="/"
+              onClick={ this.delete }
+              style={ { textDecoration: 'none' } }
+              className="delete button"
+            >
+              DELETAR
+            </Link>
           </div>
         </div>
       </main>
