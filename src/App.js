@@ -1,5 +1,6 @@
 import React from 'react';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
+import './App.css';
 import MovieList from './pages/MovieList';
 import NewMovie from './pages/NewMovie';
 import MovieDetails from './pages/MovieDetails';
@@ -10,7 +11,7 @@ function App() {
   return (
     <BrowserRouter>
       <header>
-        <div>Movie Card Library CRUD</div>
+        <h1>Movie Card Library CRUD</h1>
       </header>
       <Switch>
         <Route exact path="/" component={ MovieList } />
