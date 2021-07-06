@@ -43,3 +43,16 @@
   font-size: 14px;
   text-align: justify;
 }
+
+.movie-card-details {
+  background-color: rgba(0, 0, 0, 0.03);
+  border-top: 1px solid rgba(0, 0, 0, 0.125);
+  display: flex;
+  justify-content: flex-start;
+  padding: 12px 20px;
+}
+
+.movie-card-details a {
+  color: rgb(219, 158, 45);
+  text-decoration: none;
+}
