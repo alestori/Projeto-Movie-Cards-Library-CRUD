@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import { Redirect } from 'react-router-dom';
 import { getMovie, updateMovie } from '../services/movieAPI';
 import Loading from '../components/Loading';
 import MovieForm from '../components/MovieForm';
-// import * as movieAPI from '../services/movieAPI';
 
 class EditMovie extends Component {
   constructor(props) {
@@ -48,5 +48,13 @@ class EditMovie extends Component {
     );
   }
 }
+
+EditMovie.propTypes = {
+  match: PropTypes.shape({
+    params: PropTypes.shape({
+      id: PropTypes.string.isRequired,
+    }),
+  }).isRequired,
+};
 
 export default EditMovie;

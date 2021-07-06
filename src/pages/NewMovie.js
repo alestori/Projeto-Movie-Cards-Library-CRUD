@@ -12,13 +12,13 @@ class NewMovie extends Component {
 
   handleSubmit(newMovie) {
     createMovie(newMovie);
-    this.setState({ shouldRedirect: true});
+    this.setState({ shouldRedirect: true });
   }
 
   render() {
     const { shouldRedirect } = this.state;
     if (shouldRedirect === true) {
-      return <Redirect to='/'/>;
+      return <Redirect to="/" />;
     }
     return (
       <div data-testid="new-movie">
