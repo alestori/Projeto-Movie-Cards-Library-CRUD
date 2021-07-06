@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import MovieCard from '../components/MovieCard';
+import { Loading } from '../components';
+import { getMovies } from '../services/movieAPI';
 
 // import * as movieAPI from '../services/movieAPI';
 
@@ -12,13 +14,23 @@ class MovieList extends Component {
     };
   }
 
+  componentDidMount() {
+    getMovies().then((r) => this.setState({ movies: [...r] }));
+  }
+
+  shouldComponentUpdate() {
+    const { movies } = this.state;
+    if (movies.length <= 0) {
+      return <Loading />;
+    }
+    return true;
+  }
+
   render() {
     const { movies } = this.state;
-
-    // Render Loading here if the request is still happening
-
     return (
       <div data-testid="movie-list">
+        {this.shouldComponentUpdate()}
         {movies.map((movie) => <MovieCard key={ movie.title } movie={ movie } />)}
       </div>
     );
