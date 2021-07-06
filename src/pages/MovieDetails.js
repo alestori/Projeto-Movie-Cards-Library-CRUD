@@ -9,6 +9,7 @@ class MovieDetails extends Component {
     super();
     this.state = {
       movie: '',
+      loading: true,
     };
   }
 
@@ -16,13 +17,16 @@ class MovieDetails extends Component {
     // https://github.com/tryber/sd-011-project-movie-card-library-crud/pull/116/commits/a08fa4556b3b574a4770a58b1aa52bccf5115641
     // https://scotch.io/courses/using-react-router-4/route-params
     const { match: { params: { id } } } = this.props;
-    movieAPI.getMovie(id).then((result) => this.setState({ movie: result }));
+    movieAPI.getMovie(id).then((result) => this.setState({
+      movie: result,
+      loading: false,
+    }));
   }
 
   render() {
-    const { movie } = this.state;
+    const { movie, loading } = this.state;
     const { title, storyline, imagePath, genre, rating, subtitle, id } = movie;
-    if (!movie) {
+    if (loading) {
       return <Loading />;
     }
     return (
