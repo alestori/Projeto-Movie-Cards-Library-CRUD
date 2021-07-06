@@ -6,6 +6,7 @@ class MovieForm extends React.Component {
     super(props);
     this.state = { ...props.movie };
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.updateMovie = this.updateMovie.bind(this);
   }
 
   handleSubmit() {
@@ -15,6 +16,7 @@ class MovieForm extends React.Component {
 
   updateMovie(field, newValue) {
     this.setState({ [field]: newValue });
+    console.log(this.props.movie);
   }
 
   renderTitleInput() {
