@@ -26,10 +26,10 @@ class MovieDetails extends Component {
   handleRemoveMovie() {
     const { match: { params: { id } } } = this.props;
     movieAPI.deleteMovie(id);
-  };
+  }
 
   render() {
-    const { load } = this.state; 
+    const { load } = this.state;
     const { handleRemoveMovie } = this;
 
     if (load) {
@@ -37,14 +37,16 @@ class MovieDetails extends Component {
     }
 
     const {
-      title,
-      storyline,
-      imagePath,
-      genre,
-      rating,
-      subtitle,
-      id,
-    } = this.state.movie;
+      movie: {
+        title,
+        storyline,
+        imagePath,
+        genre,
+        rating,
+        subtitle,
+        id,
+      },
+    } = this.state;
 
     return (
       <div data-testid="movie-details">
@@ -63,7 +65,7 @@ class MovieDetails extends Component {
 }
 
 MovieDetails.propTypes = {
-  match: PropTypes.object.isRequired,
+  match: PropTypes.objectOf.isRequired,
 };
 
 export default MovieDetails;
