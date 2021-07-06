@@ -14,3 +14,9 @@ body {
   overflow: hidden;
   width: 300px;
 }
+
+.movie-list {
+  display: flex;
+  flex-flow: row wrap;
+  padding: 48px 30px;
+}
