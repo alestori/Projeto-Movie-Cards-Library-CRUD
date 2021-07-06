@@ -29,6 +29,12 @@ class MovieDetails extends Component {
     });
   }
 
+  del = () => {
+    const { match: { params: { id } } } = this.props;
+    const { deleteMovie } = movieAPI;
+    deleteMovie(id);
+  }
+
   render() {
     // Change the condition to check the state
     // if (true) return <Loading />;
@@ -49,6 +55,7 @@ class MovieDetails extends Component {
         <p>{ `Rating: ${rating}` }</p>
         <Link to={ `/movies/${id}/edit` }>EDITAR</Link>
         <Link to="/">VOLTAR</Link>
+        <Link to="/" onClick={ this.del }>DELETAR</Link>
       </div>
     );
   }
@@ -57,7 +64,7 @@ class MovieDetails extends Component {
 MovieDetails.propTypes = {
   match: PropTypes.shape({
     params: PropTypes.shape({
-      id: PropTypes.number.isRequired,
+      id: PropTypes.string.isRequired,
     }),
   }).isRequired,
 };
