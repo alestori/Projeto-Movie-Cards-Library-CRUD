@@ -13,11 +13,24 @@ class MovieCard extends React.Component {
           <h4>{ movie.title }</h4>
           <p> { movie.storyline }</p>
         </div>
-        <Link className="movie-card-details" to={ `/movies/${movie.id}` }>Mais Detalhes!</Link>
+        <Link className="movie-card-details" to={ `/movies/${movie.id}` }>VER DETALHES</Link>
                 
       </div>
     );
   }
+}
+
+MovieCard.propTypes = {
+  movie: PropTypes.shape({
+    id: PropTypes.number,
+    title: PropTypes.string,
+    subtitle: PropTypes.string,
+    storyline: PropTypes.string,
+    rating: PropTypes.number,
+    imagePath: PropTypes.string,
+    bookmarked: PropTypes.bool,
+    genre: PropTypes.string,
+  }).isRequired,
 }
 
 export default MovieCard;
