@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-import { getMovie } from '../services/movieAPI';
-import Loading from '../components/Loading';
 import { Link } from 'react-router-dom';
+import { getMovie, deleteMovie } from '../services/movieAPI';
+import Loading from '../components/Loading';
 
 class MovieDetails extends Component {
   constructor() {
@@ -14,7 +14,7 @@ class MovieDetails extends Component {
   }
 
   componentDidMount() {
-    const { match: { params: { id } }} = this.props;
+    const { match: { params: { id } } } = this.props;
     getMovie(id).then((response) => {
       this.setState({
         movie: response,
@@ -28,7 +28,15 @@ class MovieDetails extends Component {
     // console.log(this.props)
     if (loading === true) return <Loading />;
 
-    const { id, title, storyline, imagePath, genre, rating, subtitle } = this.state.movie;
+    const { movie: {
+      id,
+      title,
+      storyline,
+      imagePath,
+      genre,
+      rating,
+      subtitle,
+    } } = this.state;
 
     return (
       <div data-testid="movie-details">
@@ -39,11 +47,11 @@ class MovieDetails extends Component {
         <p>{ `Genre: ${genre}` }</p>
         <p>{ `Rating: ${rating}` }</p>
         <Link to={ `/movies/${id}/edit` }>EDITAR</Link>
-        <Link to={ '/' }>VOLTAR</Link>
+        <Link to="/">VOLTAR</Link>
+        <Link to="/" onClick={ () => deleteMovie(id) }>DELETAR</Link>
       </div>
     );
   }
-
 }
 
 export default MovieDetails;
