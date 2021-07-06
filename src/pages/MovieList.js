@@ -16,22 +16,20 @@ class MovieList extends Component {
 
   componentDidMount() {
     movieAPI.getMovies()
-      .then((response) => this.setState({movies: response, load: false }));
+      .then((response) => this.setState({ movies: response, load: false }));
   }
 
   render() {
     const { movies, load } = this.state;
 
     if (load) {
-      return (
-        <Loading />
-      );
+      return (<Loading />);
     }
 
     return (
       <div data-testid="movie-list">
         <Link to="/movies/new">ADICIONAR CARTÃO</Link>
-        {movies.map((movie) => <MovieCard key={ movie.title } movie={ movie } />)}
+        { movies.map((movie) => <MovieCard key={ movie.title } movie={ movie } />) }
       </div>
     );
   }

@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 
 import { Link } from 'react-router-dom';
 import * as movieAPI from '../services/movieAPI';
@@ -12,6 +13,8 @@ class MovieDetails extends Component {
       movie: {},
       load: true,
     };
+
+    this.handleRemoveMovie = this.handleRemoveMovie.bind(this);
   }
 
   componentDidMount() {
@@ -20,11 +23,17 @@ class MovieDetails extends Component {
       .then((movie) => this.setState({ movie, load: false }));
   }
 
+  handleRemoveMovie() {
+    const { match: { params: { id } } } = this.props;
+    movieAPI.deleteMovie(id);
+  };
+
   render() {
     const { load } = this.state; 
+    const { handleRemoveMovie } = this;
 
     if (load) {
-      return <Loading />
+      return (<Loading />);
     }
 
     const {
@@ -45,12 +54,16 @@ class MovieDetails extends Component {
         <p>{ `Storyline: ${storyline}` }</p>
         <p>{ `Genre: ${genre}` }</p>
         <p>{ `Rating: ${rating}` }</p>
-        <Link to={`/movies/${id}/edit`}>EDITAR</Link>
+        <Link to={ `/movies/${id}/edit` }>EDITAR</Link>
         <Link to="/">VOLTAR</Link>
-        <Link to={`/movies/${id}/remove`}>DELETAR</Link>
+        <Link to="/" onClick={ handleRemoveMovie }>DELETAR</Link>
       </div>
     );
   }
 }
+
+MovieDetails.propTypes = {
+  match: PropTypes.object.isRequired,
+};
 
 export default MovieDetails;

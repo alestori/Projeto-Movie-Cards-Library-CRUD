@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 import { Redirect } from 'react-router-dom';
 import * as movieAPI from '../services/movieAPI';
@@ -14,7 +15,7 @@ class RemoveMovie extends React.Component {
 
   componentDidMount() {
     const { match: { params: { id }} } = this.props;
-    movieAPI.deleteMovie(id).then(() => this.setState({ shouldRedirect: true }));
+    
   }
 
   render() {
@@ -29,5 +30,9 @@ class RemoveMovie extends React.Component {
     );
   }
 }
+
+RemoveMovie.propTypes = {
+  match: PropTypes.object.isRequired,
+};
 
 export default RemoveMovie;
