@@ -1,0 +1,22 @@
+.movie-card {
+  background-color: gainsboro;
+  border: 1px solid black;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  height: 400px;
+  margin: 10px 5px;
+  overflow: hidden;
+  width: 30%;
+}
+
+.movie-card-text {
+  padding: 10px;
+}
+
+.movie-card-details {
+  color: orangered;
+  padding-bottom: 5px;
+  text-align: center;
+  text-decoration: none;
+}

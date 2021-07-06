@@ -1,5 +1,6 @@
 .library-movie-list {
-  display: flex;
-  justify-content: center;
   align-items: center;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
 }
