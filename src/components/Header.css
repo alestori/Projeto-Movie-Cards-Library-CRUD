@@ -1,9 +1,9 @@
 .library-header {
+  align-items: center;
   background-color: rgb(160, 153, 153);
   color: white;
   display: flex;
-  justify-content: center;
-  align-items: center;
   height: 150px;
+  justify-content: center;
   width: 100%;
 }
