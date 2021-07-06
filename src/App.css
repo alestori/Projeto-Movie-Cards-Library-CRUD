@@ -1,8 +1,8 @@
 body {
-  background-color: whitesmoke;
-  box-sizing: border-box;
   background: url('./images/felix-mooneeram-evlkOfkQ5rE-unsplash.jpg') no-repeat fixed;
+  background-color: whitesmoke;
   background-size: cover;
+  box-sizing: border-box;
 }
 
 @font-face {
@@ -25,6 +25,11 @@ body {
   text-align: center;
 }
 
+main {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+}
 
 .movie-card {
   background-color: white;
