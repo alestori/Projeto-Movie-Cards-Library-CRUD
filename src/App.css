@@ -1,5 +1,4 @@
 body {
-  background-color: whitesmoke;
   box-sizing: border-box;
 }
 
@@ -59,4 +58,9 @@ body {
 .card-button:hover {
   background-color: black;
   color: white;
+}
+
+.loading-style {
+  margin-top: 8% auto;
+  text-align: center;
 }
