@@ -15,6 +15,7 @@ class MovieDetails extends Component {
     };
   }
 
+  // Requisito 4 - Ajuda dos colegas Miguel Retroz e Elias Forte para usar as props do match, params e id
   componentDidMount() {
     const { match } = this.props;
     const { params } = match;
