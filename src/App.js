@@ -1,8 +1,7 @@
 import React from 'react';
 
-function App() {
+class App extends React.Component{
   return (
-    <div>Movie Card Library CRUD</div>
   );
 }
 
