@@ -1,9 +1,16 @@
-import React from 'react';
+import React, { Component } from 'react';
+import { BrowserRouter as Router } from 'react-router-dom';
+import './App.css';
+import MovieSite from './MovieSite';
 
-function App() {
-  return (
-    <div>Movie Card Library CRUD</div>
-  );
+class App extends Component {
+  render() {
+    return (
+      <Router>
+        <MovieSite />
+      </Router>
+    );
+  }
 }
 
 export default App;

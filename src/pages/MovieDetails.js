@@ -8,7 +8,7 @@ class MovieDetails extends Component {
     // Change the condition to check the state
     // if (true) return <Loading />;
 
-    //title - retirado da const pra evitar lint
+    // title - retirado da const pra evitar lint
     const { storyline, imagePath, genre, rating, subtitle } = {};
 
     return (
