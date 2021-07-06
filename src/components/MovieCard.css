@@ -4,8 +4,9 @@
   border-radius: 10px;
   display: flex;
   flex-direction: column;
-  height: 400px;
+  height: 430px;
   margin: 10px 5px;
+  max-width: 400px;
   overflow: hidden;
   width: 30%;
 }
@@ -16,7 +17,6 @@
 
 .movie-card-details {
   color: orangered;
-  padding-bottom: 5px;
   text-align: center;
   text-decoration: none;
 }

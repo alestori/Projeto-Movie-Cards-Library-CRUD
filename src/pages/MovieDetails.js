@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import * as movieAPI from '../services/movieAPI';
 import { Loading } from '../components';
+import './MovieDetails.css';
 
 class MovieDetails extends Component {
   constructor(props) {
@@ -36,9 +37,9 @@ class MovieDetails extends Component {
     return (
       <div data-testid="movie-details" className="movie-details">
         <img alt="Movie Cover" src={ `../${imagePath}` } />
-        <p>{ `Title: ${title}` }</p>
-        <p>{ `Subtitle: ${subtitle}` }</p>
-        <p>{ `Storyline: ${storyline}` }</p>
+        <h4>{ title }</h4>
+        <p>{ subtitle }</p>
+        <p>{ `Sinopse: ${storyline}` }</p>
         <p>{ `Genre: ${genre}` }</p>
         <p>{ `Rating: ${rating}` }</p>
         <Link className="movie-details-link" to={ `/movies/${id}/edit`}>EDITAR</Link>
