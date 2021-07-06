@@ -16,7 +16,6 @@ class MovieForm extends React.Component {
 
   updateMovie(field, newValue) {
     this.setState({ [field]: newValue });
-    console.log(this.props.movie);
   }
 
   renderTitleInput() {
@@ -165,5 +164,18 @@ class MovieForm extends React.Component {
     );
   }
 }
+
+MovieForm.propTypes = {
+  onSubmit: PropTypes.func.isRequired,
+  movie: PropTypes.shape({
+    title: PropTypes.string,
+    storyline: PropTypes.string,
+    subtitle: PropTypes.string,
+    rating: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+    imagePath: PropTypes.string,
+    bookmarked: PropTypes.bool,
+    genre: PropTypes.string,
+  }).isRequired,
+};
 
 export default MovieForm;
