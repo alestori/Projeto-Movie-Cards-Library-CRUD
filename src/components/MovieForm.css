@@ -1,20 +1,21 @@
-.library-edit-form div form {
+form {
   border: 2px solid black;
   display: flex;
   flex-direction: column;
+  margin: 5px;
 }
 
-.library-edit-form div form div {
+form div {
   margin: 10px auto;
   width: 80%;
 }
 
-.library-edit-form div form label {
+form label {
   display: flex;
   flex-direction: column;
 }
 
-.library-edit-form div form button {
+form button {
   background-color: lightseagreen;
   border: 1px solid black;
   border-radius: 10px;

@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import './MovieForm.css';
 
 class MovieForm extends React.Component {
   constructor(props) {
@@ -175,7 +176,7 @@ MovieForm.defaultProps = {
     bookmarked: false,
     genre: '',
   },
-}
+};
 
 MovieForm.propTypes = {
   movie: PropTypes.shape({

@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Redirect } from 'react-router-dom';
 import MovieForm from '../components/MovieForm';
 import * as movieAPI from '../services/movieAPI';
+import './NewMovie.css';
 
 class NewMovie extends Component {
   constructor(props) {
@@ -17,13 +18,13 @@ class NewMovie extends Component {
     if (response === 'OK') {
       this.setState({
         shouldRedirect: true,
-      })
+      });
     }
   }
 
   render() {
     const { shouldRedirect } = this.state;
-    if (shouldRedirect) return <Redirect to="/" />
+    if (shouldRedirect) return <Redirect to="/" />;
     return (
       <div data-testid="new-movie" className="new-movie">
         <h3>Adicionar Novo Filme</h3>
