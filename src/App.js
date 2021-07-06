@@ -14,9 +14,9 @@ class App extends React.Component {
         <BrowserRouter>
           <Switch>
             <Route exact path="/" component={ MovieList } />
+            <Route path="/movies/:id/edit" component={ EditMovie } />
             <Route path="/movies/:id" component={ MovieDetails } />
             <Route path="/movies/new" component={ NewMovie } />
-            <Route path="/movies/:id/edit" component={ EditMovie } />
             <Route component={ NotFound } />
           </Switch>
         </BrowserRouter>
