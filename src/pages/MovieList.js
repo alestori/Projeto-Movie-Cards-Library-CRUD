@@ -20,9 +20,10 @@ class MovieList extends Component {
   }
 
   async handleFetchMovie() {
-    const movies = await movieAPI.getMovies();
+    const importedMovies = await movieAPI.getMovies();
     this.setState({
-      movies, loading: false,
+      movies: importedMovies,
+      loading: false,
     });
   }
 
