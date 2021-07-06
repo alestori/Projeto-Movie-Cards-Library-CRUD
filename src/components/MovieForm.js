@@ -1,10 +1,10 @@
 import React from 'react';
-// import PropTypes from 'prop-types';
+import PropTypes from 'prop-types';
 
 class MovieForm extends React.Component {
   constructor(props) {
     super(props);
-    // this.state = { ...props.movie };
+    this.state = { ...props.movie };
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
@@ -163,5 +163,17 @@ class MovieForm extends React.Component {
     );
   }
 }
+
+MovieForm.propTypes = {
+  movie: PropTypes.shape({
+    id: PropTypes.number.isRequired,
+    title: PropTypes.string.isRequired,
+    storyline: PropTypes.string.isRequired,
+    rating: PropTypes.number.isRequired,
+    imagePath: PropTypes.string.isRequired,
+    bookmarked: PropTypes.bool.isRequired,
+    genre: PropTypes.string.isRequired,
+  }).isRequired,
+};
 
 export default MovieForm;
