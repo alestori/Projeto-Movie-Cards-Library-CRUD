@@ -8,6 +8,7 @@ import * as movieAPI from '../services/movieAPI';
 class EditMovie extends Component {
   constructor(props) {
     super(props);
+    this.mounted = false;
     this.state = {
       loading: true,
       shouldRedirect: false,
@@ -16,8 +17,15 @@ class EditMovie extends Component {
     this.handleFetchMovie = this.handleFetchMovie.bind(this);
   }
 
+  // solução para warning:
+  // https://www.akashmittal.com/cant-perform-react-state-update-unmounted-component/
   componentDidMount() {
+    this.mounted = true;
     this.handleFetchMovie();
+  }
+
+  componentWillUnmount() {
+    this.mounted = false;
   }
 
   async handleSubmit(updatedMovie) {
@@ -25,11 +33,13 @@ class EditMovie extends Component {
     this.setState({ shouldRedirect: true });
   }
 
-  async handleFetchMovie() {
+  handleFetchMovie() {
     this.setState({ loading: true }, async () => {
       const { match: { params: { id } } } = this.props;
       const movie = await movieAPI.getMovie(id);
-      this.setState({ movie, loading: false });
+      if (this.mounted) {
+        this.setState({ movie, loading: false });
+      }
     });
   }
 
