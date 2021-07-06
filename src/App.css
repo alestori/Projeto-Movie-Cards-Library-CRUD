@@ -1,7 +1,30 @@
 body {
   background-color: whitesmoke;
   box-sizing: border-box;
+  background: url('./images/felix-mooneeram-evlkOfkQ5rE-unsplash.jpg') no-repeat fixed;
+  background-size: cover;
 }
+
+@font-face {
+  font-family: TheGodfather;
+  src: url('./fonts/TheGodfather-rgRK.ttf');
+}
+
+.page-header {
+  align-items: center;
+  display: flex;
+  height: 100px;
+  justify-content: center;
+}
+
+.page-title {
+  color: white;
+  font-family: TheGodfather, serif;
+  font-size: 70px;
+  font-weight: 500;
+  text-align: center;
+}
+
 
 .movie-card {
   background-color: white;

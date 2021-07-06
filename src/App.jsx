@@ -6,8 +6,8 @@ import { MovieList, NewMovie, MovieDetails, NotFound, EditMovie } from './pages'
 function App() {
   return (
     <BrowserRouter>
-      <header>
-        <h1>Movie Card Library CRUD</h1>
+      <header className="page-header">
+        <h1 className="page-title">Movie Card Library CRUD</h1>
       </header>
       <Switch>
         <Route exact path="/" component={ MovieList } />
