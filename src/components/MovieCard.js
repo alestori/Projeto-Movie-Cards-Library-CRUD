@@ -9,7 +9,7 @@ export default class MovieCard extends React.Component {
 
     return (
       <div data-testid="movie-card">
-        <img src={ imagePath } alt={ `Thumbnail de ${title}` } />
+        <img src={ imagePath } alt={ title } />
         <h2>{title}</h2>
         <h4>{subtitle}</h4>
         <p>{storyline}</p>
