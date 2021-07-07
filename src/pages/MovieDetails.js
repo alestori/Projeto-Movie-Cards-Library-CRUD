@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
-
+import { Link, Redirect } from 'react-router-dom';
+import PropTypes from 'prop-types';
 import * as movieAPI from '../services/movieAPI';
 import { Loading } from '../components';
-import { Link, Redirect } from 'react-router-dom';
 
 class MovieDetails extends Component {
   constructor() {
@@ -20,21 +20,21 @@ class MovieDetails extends Component {
         loading: false,
         movie: data,
       });
-    })
+    });
   }
 
   handleClick = () => {
     const { movie: { id } } = this.state;
-    movieAPI.deleteMovie(id).then(() =>
+    movieAPI.deleteMovie(id).then(() => {
       this.setState({
-        redirect: true
-      })
-    );
+        redirect: true,
+      });
+    });
   }
 
   render() {
     const { movie: { title, storyline, genre, imagePath, rating, subtitle, id },
-    loading, redirect } = this.state;
+      loading, redirect } = this.state;
 
     if (loading) return <Loading />;
     if (redirect) return <Redirect to="/" />;
@@ -54,5 +54,13 @@ class MovieDetails extends Component {
     );
   }
 }
+
+MovieDetails.propTypes = {
+  match: PropTypes.shape({
+    params: propTypes.shape({
+      id: propTypes.string,
+    }),
+  }).isRequired,
+};
 
 export default MovieDetails;
