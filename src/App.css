@@ -97,6 +97,13 @@ a.button, a.button:visited {
 
 .movie-card a, .movie-card a:visited {
   color: blue;
+  font-style: italic;
+  transition: 0.2s;
+}
+
+.movie-card a:hover {
+  color:steelblue;
+  transition: 0.2s;
 }
 
 .add {
