@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, Redirect } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import * as movieAPI from '../services/movieAPI';
 import { Loading } from '../components';
@@ -8,14 +8,23 @@ class MovieDetails extends Component {
   constructor(props) {
     super(props);
 
+    this.handleClick = this.handleClick.bind(this);
+
     this.state = {
       movie: {},
       loading: true,
+      shouldRedirect: false,
     };
   }
 
   componentDidMount() {
     this.fetchApi();
+  }
+
+  handleClick() {
+    this.setState({ shouldRedirect: true });
+    const { match: { params: { id } } } = this.props;
+    movieAPI.deleteMovie(id);
   }
 
   async fetchApi() {
@@ -32,11 +41,13 @@ class MovieDetails extends Component {
   render() {
     // Change the condition to check the state
     // if (true) return <Loading />;
-    const { movie, loading } = this.state;
+    const { movie, loading, shouldRedirect } = this.state;
     const { title, storyline, imagePath, genre, rating, subtitle } = movie;
     const { match: { params: { id } } } = this.props;
 
     if (loading) return <Loading />;
+
+    if (shouldRedirect) return <Redirect to="/" />;
 
     return (
       <div data-testid="movie-details">
@@ -49,6 +60,12 @@ class MovieDetails extends Component {
         <div>
           <button type="button"><Link to="/">VOLTAR</Link></button>
           <button type="button"><Link to={ `/movies/${id}/edit` }>EDITAR</Link></button>
+          <button
+            type="button"
+            onClick={ this.handleClick }
+          >
+            <Link to="/">DELETAR</Link>
+          </button>
         </div>
       </div>
     );
