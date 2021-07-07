@@ -34,7 +34,6 @@ class MovieDetails extends Component {
   }
 
   render() {
-    // Change the condition to check the state
     const { loading } = this.state;
     if (loading) return <Loading />;
 
@@ -42,16 +41,24 @@ class MovieDetails extends Component {
     const { id, title, storyline, imagePath, genre, rating, subtitle } = movie;
 
     return (
-      <div data-testid="movie-details">
+      <div className="movie-infos" data-testid="movie-details">
         <img alt="Movie Cover" src={ `../${imagePath}` } />
         <h1>{ title }</h1>
-        <p>{ `Subtitle: ${subtitle}` }</p>
-        <p>{ `Storyline: ${storyline}` }</p>
-        <p>{ `Genre: ${genre}` }</p>
-        <p>{ `Rating: ${rating}` }</p>
-        <Link to="/">VOLTAR</Link>
-        <Link to={ `/movies/${id}/edit` }>EDITAR</Link>
-        <Link to="/" onClick={ () => this.deleteMovie(id) }>DELETAR</Link>
+        <p>{ subtitle }</p>
+        <p>{ storyline }</p>
+        <p>{ genre }</p>
+        <p>{ rating }</p>
+        <div>
+          <Link className="card-button" to="/">VOLTAR</Link>
+          <Link className="card-button" to={ `/movies/${id}/edit` }>EDITAR</Link>
+          <Link
+            className="card-button"
+            to="/"
+            onClick={ () => this.deleteMovie(id) }
+          >
+            DELETAR
+          </Link>
+        </div>
       </div>
     );
   }

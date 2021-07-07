@@ -30,7 +30,8 @@ class NewMovie extends Component {
     }
 
     return (
-      <div data-testid="new-movie">
+      <div className="edit-card" data-testid="new-movie">
+        <h1>Add Movie</h1>
         <MovieForm onSubmit={ this.handleSubmit } />
       </div>
     );

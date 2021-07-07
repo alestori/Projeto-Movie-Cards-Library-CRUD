@@ -3,7 +3,6 @@ body {
 }
 
 .movie-card {
-  background-color: white;
   border: 1px solid rgba(0, 0, 0, 0.125);
   border-radius: 3px;
   display: flex;
@@ -47,6 +46,7 @@ body {
   align-self: center;
   border: 3px solid black;
   color: black;
+  cursor: pointer;
   font-weight: 500;
   margin-bottom: 7px;
   padding: 10px;
@@ -63,4 +63,40 @@ body {
 .loading-style {
   margin-top: 8% auto;
   text-align: center;
+}
+
+.movie-infos * {
+  margin: 3px 5px 20px;
+}
+
+.movie-infos {
+  align-items: center;
+  border: 1px solid rgba(0, 0, 0, 0.125);
+  border-radius: 3px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  margin: 2px auto 15px;
+  padding: 7px;
+  text-align: center;
+  width: 50%;
+}
+
+.edit-card {
+  border: 1px solid rgba(0, 0, 0, 0.125);
+  display: flex;
+  flex-direction: column;
+  height: 99vh;
+  margin: 1% auto;
+  text-align: center;
+  width: 25%;
+}
+
+form input {
+  height: 28px;
+}
+
+textarea {
+  height: 80px;
+  width: 80%;
 }
