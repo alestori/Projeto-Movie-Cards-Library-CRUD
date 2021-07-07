@@ -9,6 +9,7 @@ body {
   background-size: cover;
   box-sizing: border-box;
   font-family: Adidas, sans-serif;
+  font-size: 0.9em;
 }
 
 
@@ -87,6 +88,15 @@ main {
   transform: translate3d(2px, 2px, 0);
   box-shadow: none;
   transition: 0.1s;
+}
+
+a.button, a.button:visited {
+  color: black;
+  font-weight: 600;
+}
+
+.movie-card a, .movie-card a:visited {
+  color: blue;
 }
 
 .add {
