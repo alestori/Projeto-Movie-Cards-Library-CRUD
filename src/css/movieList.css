@@ -1,0 +1,25 @@
+.movie-list {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+  margin: 0 auto;
+  width: 95%;
+}
+
+.movie-link {
+  background-color: black;
+  border-radius: 5px;
+  color: #f48024;
+  cursor: pointer;
+  height: 20px;
+  opacity: 0.8;
+  padding: 10px;
+  position: absolute;
+  right: 5px;
+  text-decoration: none;
+  top: 50px;
+}
+
+.movie-link:hover {
+  opacity: 1;
+}
