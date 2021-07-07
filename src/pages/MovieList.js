@@ -13,6 +13,7 @@ class MovieList extends Component {
       movies: [],
     };
     this.fetchMovies = this.fetchMovies.bind(this);
+    this.markMovie = this.markMovie.bind(this);
   }
 
   componentDidMount() {
@@ -24,6 +25,13 @@ class MovieList extends Component {
     this.setState((state) => ({ ...state, movies: [...movies] }));
   }
 
+  markMovie(bookmarked, id) {
+    const { movies } = this.state;
+    const bookmarkChanged = movies.find((movie) => Number(movie.id) === Number(id));
+    bookmarkChanged.bookmarked = bookmarked;
+    movieAPI.updateMovie(bookmarkChanged);
+  }
+
   render() {
     const { movies } = this.state;
 
@@ -32,7 +40,11 @@ class MovieList extends Component {
     return (
       <div data-testid="movie-list">
         <Link to="/movies/new">ADICIONAR CARTÃO</Link>
-        {movies.map((movie) => <MovieCard key={ movie.title } movie={ movie } />)}
+        {movies.map((movie) => (<MovieCard
+          key={ movie.title }
+          movie={ movie }
+          onClick={ this.markMovie }
+        />))}
       </div>
     );
   }
