@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import './MovieDetails.css';
 import { Link, Redirect } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import * as movieAPI from '../services/movieAPI';
@@ -40,18 +41,16 @@ class MovieDetails extends Component {
     if (shouldRedirect) return <Redirect to="/" />;
 
     return (
-      <div data-testid="movie-details">
-        <img alt="Movie Cover" src={ `../${imagePath}` } />
+      <div data-testid="movie-details" className="movieDetails">
+        <img className="divImage" alt="Movie Cover" src={ `../${imagePath}` } />
         <h1>{ title }</h1>
         <p>{ `Subtitle: ${subtitle}` }</p>
         <p>{ `Storyline: ${storyline}` }</p>
         <p>{ `Genre: ${genre}` }</p>
         <p>{ `Rating: ${rating}` }</p>
-        <div>
+        <div className="divLinks">
           <Link to={ `/movies/${id}/edit` }>EDITAR</Link>
-          <br />
           <Link to="/">VOLTAR</Link>
-          <br />
           <Link to="/" onClick={ this.deleteMovie }>DELETAR</Link>
         </div>
       </div>

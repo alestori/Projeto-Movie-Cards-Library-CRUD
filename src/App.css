@@ -1,5 +1,44 @@
+#loading, #title {
+  text-align: center;
+}
+
+#title {
+  text-decoration: underline;
+}
+
+.divList {
+  display: flex;
+  flex-flow: wrap;
+  justify-content: center;
+  text-align: center;
+}
+
+.card {
+  border: 5px outset gray;
+  margin: 3%;
+  max-width: 40%;
+}
+
+.sectionImage {
+  width: 100%;
+}
+
 body {
-  background-color: whitesmoke;
+  background-color: white;
   box-sizing: border-box;
 }
 
+header {
+  text-align: center;
+}
+
+a:link, a:visited {
+  background-color: #72f436;
+  color: black;
+  display: inline-flex;
+  justify-content: center;
+  padding: 14px 20px;
+  text-align: center;
+  text-decoration: none;
+  width: 25%;
+}
