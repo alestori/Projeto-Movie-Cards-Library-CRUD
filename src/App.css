@@ -1,9 +1,16 @@
+@font-face {
+  font-family: Adidas;
+  src: url('./fonts/texgyreadventor-regular.otf');
+}
+
 body {
   background: url('./images/felix-mooneeram-evlkOfkQ5rE-unsplash.jpg') no-repeat fixed;
   background-color: whitesmoke;
   background-size: cover;
   box-sizing: border-box;
+  font-family: Adidas, sans-serif;
 }
+
 
 @font-face {
   font-family: TheGodfather;
@@ -58,18 +65,15 @@ main {
 }
 
 .edit, .add {
-  background-color: green;
-  color: white;
+  background-color: rgb(27, 255, 27);
 }
 
 .return {
-  background-color: yellow;
-  color: black;
+  background-color: rgb(255, 255, 27);
 }
 
 .delete {
-  background-color: red;
-  color: white;
+  background-color: rgb(255, 27, 27);
 }
 
 .button {
