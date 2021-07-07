@@ -169,7 +169,7 @@ MovieForm.defaultProps = {
     title: '',
     subtitle: '',
     storyline: '',
-    rating: '',
+    rating: 0,
     imagePath: '',
     bookmarked: false,
     genre: 'action',
@@ -177,15 +177,15 @@ MovieForm.defaultProps = {
 };
 
 MovieForm.propTypes = {
-  movie: PropTypes.objectOf(PropTypes.shape({
-    title: PropTypes.string.isRequired,
-    subtitle: PropTypes.string.isRequired,
-    storyline: PropTypes.string.isRequired,
-    rating: PropTypes.string.isRequired,
-    imagePath: PropTypes.string.isRequired,
-    bookmarked: PropTypes.bool.isRequired,
-    genre: PropTypes.string.isRequired,
-  }).isRequired),
+  movie: PropTypes.shape({
+    title: PropTypes.string,
+    subtitle: PropTypes.string,
+    storyline: PropTypes.string,
+    rating: PropTypes.number,
+    imagePath: PropTypes.string,
+    bookmarked: PropTypes.bool,
+    genre: PropTypes.string,
+  }),
   onSubmit: PropTypes.func.isRequired,
 };
 
