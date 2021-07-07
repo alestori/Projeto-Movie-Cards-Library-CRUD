@@ -52,11 +52,12 @@ main {
   width: 24%;
 }
 
-.movie-card-rating-and-buttons a {
-  padding: 10px;
+.movie-card:hover {
+  transform: scale(1.03);
+  transition: 0.3s;
 }
 
-.edit {
+.edit, .add {
   background-color: green;
   color: white;
 }
@@ -73,6 +74,20 @@ main {
 
 .button {
   box-shadow: 2px 2px 1px black;
+  padding: 10px;
+  transition: 0.1s;
+
+}
+
+.button:active {
+  transform: translate3d(2px, 2px, 0);
+  box-shadow: none;
+  transition: 0.1s;
+}
+
+.add {
+  box-shadow: 2px 2px 1px rgb(255, 255, 255);
+  margin: 10px;
 }
 
 .movie-card-rating-and-buttons a:visited {
