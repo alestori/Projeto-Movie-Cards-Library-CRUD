@@ -1,12 +1,11 @@
-import React, { Component } from 'react';
-import MovieCard from '../components/MovieCard';
-import Loading from '../components/Loading';
+import React from 'react';
+import { Link } from 'react-router-dom';
+import { MovieCard, Loading } from '../components';
 import * as movieAPI from '../services/movieAPI';
 
-export default class MovieList extends Component {
+export default class MovieList extends React.Component {
   constructor() {
     super();
-
     this.state = {
       loading: true,
       movies: [],
@@ -22,9 +21,11 @@ export default class MovieList extends Component {
           movies: res,
         });
       })
-      .catch(() => {this.setState({
-        loading: 'Erro ao carregar',
-      })})
+      .catch(() => {
+        this.setState({
+          loading: 'Erro ao carregar',
+        });
+      });
   }
 
   loadMovieList() {
@@ -32,14 +33,15 @@ export default class MovieList extends Component {
     return (
       <div data-testid="movie-list">
         {movies.map((movie) => <MovieCard key={ movie.title } movie={ movie } />)}
+        <Link to="/movies/new">ADICIONAR CARTÃO</Link>
       </div>
     );
   }
 
   render() {
+    const { state: { loading } } = this;
     return (
-      this.state.loading ? <Loading /> : this.loadMovieList()
+      loading ? <Loading /> : this.loadMovieList()
     );
   }
 }
-
