@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
+import '../css/movieCard.css';
 
 class MovieCard extends React.Component {
   constructor({ movie }) {
@@ -30,7 +31,7 @@ class MovieCard extends React.Component {
     const { bookmarked } = this.state;
 
     return (
-      <div data-testid="movie-card">
+      <div data-testid="movie-card" className="movie-card">
         <div className="bookmarked">
           <button type="button" onClick={ this.handleClick }>
             <i
@@ -42,16 +43,10 @@ class MovieCard extends React.Component {
         <div className="movie-card-body">
           <img alt="Movie Cover" className="movie-card-image" src={ imagePath } />
           <h4 className="movie-card-title">{title}</h4>
-          <p className="movie-card-subtitle">
-            {'Subtítulo: '}
-            <span>{subtitle}</span>
-          </p>
-          <p className="movie-card-storyline">
-            {'Sinopse: '}
-            <span>{storyline}</span>
-          </p>
+          <h5 className="movie-card-subtitle">{subtitle}</h5>
+          <p className="movie-card-storyline">{storyline}</p>
         </div>
-        <div className="card-footer">
+        <div className="movie-card-rating">
           <Link to={ `movies/${id}` }>VER DETALHES</Link>
           <span className="rating">{ rating }</span>
         </div>
