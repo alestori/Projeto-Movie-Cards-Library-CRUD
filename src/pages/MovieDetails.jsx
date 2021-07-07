@@ -76,6 +76,7 @@ class MovieDetails extends Component {
               style={ { textDecoration: 'none' } }
               className="return button"
             >
+              {/* erro aqui */}
               <p className="btn-text">
                 VOLTAR
               </p>
@@ -86,6 +87,7 @@ class MovieDetails extends Component {
               style={ { textDecoration: 'none' } }
               className="delete button"
             >
+              {/* erro aqui */}
               <p className="btn-text">DELETAR</p>
             </Link>
           </div>
