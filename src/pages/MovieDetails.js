@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
+import PropTypes from 'prop-types';
 import * as movieAPI from '../services/movieAPI';
 import { Loading } from '../components';
 
@@ -47,11 +48,19 @@ class MovieDetails extends Component {
         <p>{ `Rating: ${rating}` }</p>
         <div>
           <button type="button"><Link to="/">VOLTAR</Link></button>
-          <button type="button"><Link to={`/movies/${id}/edit`}>EDITAR</Link></button>
+          <button type="button"><Link to={ `/movies/${id}/edit` }>EDITAR</Link></button>
         </div>
       </div>
     );
   }
 }
+
+MovieDetails.propTypes = {
+  match: PropTypes.shape({
+    params: PropTypes.shape({
+      id: PropTypes.string.isRequired,
+    }).isRequired,
+  }).isRequired,
+};
 
 export default MovieDetails;
