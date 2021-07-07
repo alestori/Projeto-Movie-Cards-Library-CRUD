@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Link, Redirect } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import { Loading } from '../components';
 import * as movieAPI from '../services/movieAPI';
@@ -43,12 +43,8 @@ class MovieDetails extends Component {
   }
 
   render() {
-    const { movie, loading, shouldRedirect } = this.state;
+    const { movie, loading } = this.state;
     const { id, title, subtitle, storyline, imagePath, genre, rating } = movie;
-
-    if (shouldRedirect) {
-      return (<Redirect to="/" />);
-    }
 
     return (
       <div>
