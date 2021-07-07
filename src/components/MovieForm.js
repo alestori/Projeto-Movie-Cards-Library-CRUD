@@ -173,7 +173,11 @@ MovieForm.propTypes = {
     storyline: PropTypes.string,
     genre: PropTypes.string,
     rating: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
-  }).isRequired,
+  }),
+};
+
+MovieForm.defaultProps = {
+  movie: undefined,
 };
 
 export default MovieForm;
