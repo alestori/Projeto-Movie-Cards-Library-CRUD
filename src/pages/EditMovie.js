@@ -8,14 +8,14 @@ class EditMovie extends Component {
   constructor(props) {
     super(props);
 
+    this.getMovie = this.getMovie.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
+
     this.state = {
       status: '',
       shouldRedirect: false,
       movie: {},
     };
-
-    this.getMovie = this.getMovie.bind(this);
-    this.handleSubmit = this.handleSubmit.bind(this);
   }
 
   componentDidMount() {
