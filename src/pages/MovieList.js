@@ -23,15 +23,18 @@ class MovieList extends Component {
     if (movies.length <= 0) {
       return <Loading />;
     }
-    return true;
+    return this.loadMovies();
+  }
+
+  loadMovies() {
+    const { movies } = this.state;
+    return movies.map((movie) => <MovieCard key={ movie.title } movie={ movie } />);
   }
 
   render() {
-    const { movies } = this.state;
     return (
       <div data-testid="movie-list">
         {this.shouldComponentUpdate()}
-        {movies.map((movie) => <MovieCard key={ movie.title } movie={ movie } />)}
       </div>
     );
   }
