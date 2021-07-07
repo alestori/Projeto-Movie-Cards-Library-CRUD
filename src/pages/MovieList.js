@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import MovieCard from '../components/MovieCard';
+import { Loading } from '../components';
 
 import * as movieAPI from '../services/movieAPI';
 
@@ -23,7 +24,7 @@ class MovieList extends Component {
 
   render() {
     const { movies } = this.state;
-    if (movies.length === 0) return <p>Carregando...</p>;
+    if (movies.length === 0) return <Loading />;
 
     return (
       <div data-testid="movie-list">
