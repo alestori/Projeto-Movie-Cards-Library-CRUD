@@ -13,7 +13,12 @@ function App() {
         <Route exact path="/"><MovieList /></Route>
         <Route path="/movies/new"><NewMovie /></Route>
         <Route path="/movies/:id/edit"><EditMovie /></Route>
-        <Route path="/movies/:id"><MovieDetails /></Route>
+        <Route
+          path="/movies/:id"
+          render={
+            (reactRouterProps) => (<MovieDetails { ...reactRouterProps } />)
+          }
+        />
         <Route><NotFound /></Route>
       </Switch>
     </BrowserRouter>
