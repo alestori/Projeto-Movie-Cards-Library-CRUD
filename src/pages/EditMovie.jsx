@@ -55,9 +55,14 @@ class EditMovie extends Component {
       return <Loading />;
     }
 
+    const { match: { params: { id } } } = this.props;
     return (
       <div data-testid="edit-movie">
-        <MovieForm movie={ movie } onSubmit={ this.handleSubmit } />
+        <MovieForm
+          movie={ movie }
+          onSubmit={ this.handleSubmit }
+          destination={ `/movies/${id}` }
+        />
       </div>
     );
   }

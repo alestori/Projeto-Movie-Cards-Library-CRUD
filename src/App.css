@@ -71,6 +71,8 @@ main {
 
 .return {
   background-color: rgb(255, 255, 27);
+  border: none;
+  cursor: pointer;
 }
 
 .delete {
@@ -79,9 +81,9 @@ main {
 
 .button {
   box-shadow: 2px 2px 1px black;
+  margin: 10px;
   padding: 10px;
   transition: 0.1s;
-
 }
 
 .button, .button:visited {
@@ -120,9 +122,18 @@ form {
   background-color: rgb(27, 255, 27);
   border: none;
   cursor: pointer;
+  font-family: Adidas , sans-serif;
+}
+
+.form-return {
+  align-self: center;
+  background-color: rgb(255, 255, 27);
+  padding: 9px;
 }
 
 .form-btn-div {
+  align-items: center;
+  display: flex;
   margin: 2% auto;
 }
 

@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { Link } from 'react-router-dom';
 
 class MovieForm extends React.Component {
   constructor(props) {
@@ -135,6 +136,7 @@ class MovieForm extends React.Component {
   }
 
   renderSubmitButton() {
+    const { destination } = this.props;
     return (
       <div className="form-btn-div">
         <button
@@ -142,8 +144,15 @@ class MovieForm extends React.Component {
           onClick={ this.handleSubmit }
           className="button form-btn"
         >
-          Submit
+          SUBMIT
         </button>
+        <Link
+          to={ destination }
+          style={ { textDecoration: 'none' } }
+          className="form-return button"
+        >
+          VOLTAR
+        </Link>
       </div>
     );
   }
@@ -185,6 +194,7 @@ MovieForm.defaultProps = {
 };
 
 MovieForm.propTypes = {
+  destination: PropTypes.string.isRequired,
   onSubmit: PropTypes.func.isRequired,
   movie: PropTypes.shape({
     id: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
