@@ -8,7 +8,7 @@ body {
   background-color: whitesmoke;
   background-size: cover;
   box-sizing: border-box;
-  font-family: Adidas, sans-serif;
+  font-family: Adidas , sans-serif;
   font-size: 0.9em;
 }
 
@@ -84,16 +84,17 @@ main {
 
 }
 
-.button:active {
-  transform: translate3d(2px, 2px, 0);
-  box-shadow: none;
-  transition: 0.1s;
-}
-
-a.button, a.button:visited {
+.button, .button:visited {
   color: black;
   font-weight: 600;
 }
+
+.button:active {
+  box-shadow: none;
+  transform: translate3d(2px, 2px, 0);
+  transition: 0.1s;
+}
+
 
 .movie-card a, .movie-card a:visited {
   color: blue;
@@ -101,13 +102,45 @@ a.button, a.button:visited {
   transition: 0.2s;
 }
 
+form {
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  width: 50%;
+}
+
+.row {
+  display: flex;
+  justify-content: space-around;
+}
+
+.form-btn {
+  align-self: center;
+  background-color: rgb(27, 255, 27);
+  border: none;
+  cursor: pointer;
+}
+
+.form-btn-div {
+  margin: 2% auto;
+}
+
+form label {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  width: 300px;
+}
+
+
 .movie-card a:hover {
-  color:steelblue;
+  color: steelblue;
   transition: 0.2s;
 }
 
 .add {
-  box-shadow: 2px 2px 1px rgb(255, 255, 255);
+  box-shadow: 2px 2px 1px white;
   margin: 10px;
 }
 
@@ -117,8 +150,6 @@ a.button, a.button:visited {
 
 .movie-details {
   background-color: white;
-  /* border: 1px solid rgba(0, 0, 0, 0.589); */
-  /* border-radius: 3px; */
   box-shadow: 3px 3px 1px black;
   display: flex;
   flex-direction: column;
@@ -137,12 +168,11 @@ a.button, a.button:visited {
 
 .rating {
   background-color: white;
-  /* border-radius: 5px; */
-  color: red;
   box-shadow: 2px 2px 1px black;
+  color: red;
   font-size: 16px;
   font-weight: 700;
-  padding: 10px 10px;
+  padding: 10px;
 }
 
 .movie-card-rating-and-buttons {
@@ -155,14 +185,13 @@ a.button, a.button:visited {
 }
 
 .movie-card-genre {
-  text-align: right;
   font-weight: 600;
   padding: 0 20px;
+  text-align: right;
 }
 
 .titles {
   background-color: black;
-  /* border-radius: 0 0 2px 2px; */
   box-shadow: 0 2px 2px black;
   padding: 5px;
 }
