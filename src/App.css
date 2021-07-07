@@ -66,21 +66,29 @@ main {
 }
 
 .edit, .add {
-  background-color: rgb(27, 255, 27);
+  background-color: white;
+}
+
+.add {
+  outline: 1px solid black;;
 }
 
 .return {
-  background-color: rgb(255, 255, 27);
+  background-color: black;
   border: none;
   cursor: pointer;
+  align-self: center;
+  background-color: black;
+  padding: 0 !important; 
 }
 
 .delete {
   background-color: rgb(255, 27, 27);
+  padding: 0 !important; 
 }
 
 .button {
-  box-shadow: 2px 2px 1px black;
+  box-shadow: 1px 1px 1px 2px black;
   margin: 10px;
   padding: 10px;
   transition: 0.1s;
@@ -119,7 +127,7 @@ form {
 
 .form-btn {
   align-self: center;
-  background-color: rgb(27, 255, 27);
+  background-color: white;
   border: none;
   cursor: pointer;
   font-family: Adidas , sans-serif;
@@ -127,8 +135,15 @@ form {
 
 .form-return {
   align-self: center;
-  background-color: rgb(255, 255, 27);
-  padding: 9px;
+  background-color: black;
+  padding: 0;
+}
+
+.btn-text {
+  outline: solid 1px white;
+  color: white;
+  padding: 10px;
+  margin: 0;
 }
 
 .form-btn-div {

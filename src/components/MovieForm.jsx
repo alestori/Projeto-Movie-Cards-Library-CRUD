@@ -151,7 +151,7 @@ class MovieForm extends React.Component {
           style={ { textDecoration: 'none' } }
           className="form-return button"
         >
-          VOLTAR
+          <p className="btn-text">VOLTAR</p>
         </Link>
       </div>
     );

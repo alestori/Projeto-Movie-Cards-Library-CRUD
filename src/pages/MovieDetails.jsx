@@ -76,7 +76,9 @@ class MovieDetails extends Component {
               style={ { textDecoration: 'none' } }
               className="return button"
             >
-              VOLTAR
+              <p className="btn-text">
+                VOLTAR
+              </p>
             </Link>
             <Link
               to="/"
@@ -84,7 +86,7 @@ class MovieDetails extends Component {
               style={ { textDecoration: 'none' } }
               className="delete button"
             >
-              DELETAR
+              <p className="btn-text">DELETAR</p>
             </Link>
           </div>
         </div>
