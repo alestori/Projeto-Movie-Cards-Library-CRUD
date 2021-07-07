@@ -195,6 +195,7 @@ form label {
   color: white;
   display: flex;
   font-size: 2em;
+  font-weight: 600;
   height: 100%;
   justify-content: center;
   position: fixed;
