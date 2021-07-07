@@ -27,7 +27,6 @@ class MovieDetails extends Component {
       { loading: true },
       async () => {
         const movieRequest = await movieAPI.getMovie(id);
-        console.log(movieRequest);
         this.setState({
           loading: false,
           movie: movieRequest,
