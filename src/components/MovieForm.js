@@ -1,11 +1,19 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-class MovieForm extends React.Component {
+export default class MovieForm extends React.Component {
   constructor(props) {
     super(props);
     this.state = { ...props.movie };
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.updateMovie = this.updateMovie.bind(this);
+    this.renderTitleInput = this.renderTitleInput.bind(this);
+    this.renderSubtitleInput = this.renderSubtitleInput.bind(this);
+    this.renderImagePathInput = this.renderImagePathInput.bind(this);
+    this.renderStorylineInput = this.renderStorylineInput.bind(this);
+    this.renderGenreSelection = this.renderGenreSelection.bind(this);
+    this.renderRatingInput = this.renderRatingInput.bind(this);
+    this.renderSubmitButton = this.renderSubmitButton.bind(this);
   }
 
   handleSubmit() {
@@ -164,4 +172,15 @@ class MovieForm extends React.Component {
   }
 }
 
-export default MovieForm;
+MovieForm.propTypes = PropTypes.shape({
+  movie: PropTypes.shape({
+    id: PropTypes.number.isRequired,
+    title: PropTypes.string.isRequired,
+    subtitle: PropTypes.string.isRequired,
+    storyline: PropTypes.string.isRequired,
+    rating: PropTypes.number.isRequired,
+    imagePath: PropTypes.string.isRequired,
+    genre: PropTypes.string.isRequired,
+  }).isRequired,
+  onSubmit: PropTypes.func.isRequired,
+}).isRequired;
