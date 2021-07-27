@@ -10,7 +10,7 @@ export const importer = (state = INITIAL_STATE, action) => {
   case IMPORT_MOVIES:
     return {
       ...state,
-      movies: [...state.movies, action.movies],
+      movies: action.movies,
       loading: action.loading,
     };
   default:
