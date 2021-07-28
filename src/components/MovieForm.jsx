@@ -1,6 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Link } from 'react-router-dom';
+import { Link, Redirect } from 'react-router-dom';
+import { connect } from 'react-redux';
+import * as movieAPI from '../services/movieAPI';
+import { shouldRedirect } from '../redux/actions';
 
 class MovieForm extends React.Component {
   constructor(props) {
@@ -10,8 +13,9 @@ class MovieForm extends React.Component {
   }
 
   handleSubmit() {
-    const { onSubmit } = this.props;
-    onSubmit(this.state);
+    const { redirecter } = this.props;
+    movieAPI.createMovie(this.state);
+    redirecter(true);
   }
 
   updateMovie(field, newValue) {
@@ -136,7 +140,6 @@ class MovieForm extends React.Component {
   }
 
   renderSubmitButton() {
-    const { destination } = this.props;
     return (
       <div className="form-btn-div">
         <button
@@ -147,7 +150,7 @@ class MovieForm extends React.Component {
           SUBMIT
         </button>
         <Link
-          to={ destination }
+          to="/"
           style={ { textDecoration: 'none' } }
           className="form-return button"
         >
@@ -158,6 +161,10 @@ class MovieForm extends React.Component {
   }
 
   render() {
+    const { redirect } = this.props;
+
+    if (redirect) return <Redirect to="/" />;
+
     return (
       <main>
         <form>
@@ -180,7 +187,15 @@ class MovieForm extends React.Component {
   }
 }
 
-export default MovieForm;
+const mapStateToProps = (state) => ({
+  redirect: state.redirecter.redirect,
+});
+
+const mapDispatchToProps = (dispatch) => ({
+  redirecter: (boolean) => dispatch(shouldRedirect(boolean)),
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(MovieForm);
 
 MovieForm.defaultProps = {
   movie: {
@@ -194,8 +209,8 @@ MovieForm.defaultProps = {
 };
 
 MovieForm.propTypes = {
-  destination: PropTypes.string.isRequired,
-  onSubmit: PropTypes.func.isRequired,
+  redirecter: PropTypes.func.isRequired,
+  redirect: PropTypes.bool.isRequired,
   movie: PropTypes.shape({
     id: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
     title: PropTypes.string,
