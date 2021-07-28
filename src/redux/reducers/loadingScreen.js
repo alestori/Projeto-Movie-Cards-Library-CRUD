@@ -1,5 +1,5 @@
 import { createReducer } from '@reduxjs/toolkit';
-import { isLoading } from '../actions/index';
+import { isLoading } from '../actions';
 
 const INITIAL_STATE = {
   loading: true,

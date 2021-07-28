@@ -6,15 +6,20 @@
 // });
 import { createAction } from '@reduxjs/toolkit';
 
-export const importMovies = createAction('IMPORT_MOVIES', (movies, loading) => ({
+export const importMovies = createAction('IMPORT_MOVIES', (movies) => ({
   payload: {
     movies,
-    loading,
   },
 }));
 
 export const isLoading = createAction('IS_LOADING', (loading) => ({
   payload: {
     loading,
+  },
+}));
+
+export const shouldRedirect = createAction('REDIRECT', (redirect) => ({
+  payload: {
+    redirect,
   },
 }));
