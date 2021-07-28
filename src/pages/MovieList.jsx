@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
-import { importMovies } from '../redux/actions';
+import { importMovies, isLoading } from '../redux/actions';
 import MovieCard from '../components/MovieCard';
 import Loading from '../components/Loading';
 
@@ -19,9 +19,11 @@ class MovieList extends Component {
   }
 
   async handleFetchMovie() {
+    const { importer, loader } = this.props;
+    loader(true);
     const importedMovies = await movieAPI.getMovies();
-    const { importer } = this.props;
-    importer(importedMovies, false);
+    importer(importedMovies);
+    loader(false);
   }
 
   render() {
@@ -48,18 +50,20 @@ class MovieList extends Component {
 }
 
 const mapDispatchToProps = (dispatch) => ({
-  importer: (movies, loading) => dispatch(importMovies(movies, loading)),
+  importer: (movies) => dispatch(importMovies(movies)),
+  loader: (loading) => dispatch(isLoading(loading)),
 });
 
 const mapStateToProps = (state) => ({
   movies: state.importer.movies,
-  loading: state.importer.loading,
+  loading: state.loader.loading,
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(MovieList);
 
 MovieList.propTypes = {
   importer: PropTypes.func.isRequired,
+  loader: PropTypes.func.isRequired,
   movies: PropTypes.arrayOf(PropTypes.object).isRequired,
   loading: PropTypes.bool.isRequired,
 };
